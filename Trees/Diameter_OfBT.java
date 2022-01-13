@@ -26,8 +26,8 @@ public class Diameter_OfBT{
     public static int Diameter(Node root)
     {
         if(root ==null) return 0;
-        int lh = Diameter(root.left);
-        int rh = Diameter(root.right);
+        int lh = Diameter(root.left);// Height of left sub tree
+        int rh = Diameter(root.right);// Height of right sub tree
         ans = Math.max(ans, 1+lh+rh);
         return 1+ Math.max(lh, rh);
     }
