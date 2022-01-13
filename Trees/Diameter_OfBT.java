@@ -2,8 +2,8 @@ package Trees;
 
 import java.util.*;
 public class Diameter_OfBT{
-    static Node root;
-    static int ans =0;
+    Node root;
+    int ans =0;
     Diameter_OfBT(int d)
     {
         root = new Node(d);
@@ -14,16 +14,19 @@ public class Diameter_OfBT{
     }
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        Diameter_OfBT.root = new Node(1);
-        Diameter_OfBT.root.left = new Node(2);
-        Diameter_OfBT.root.right= new Node(3);
-        Diameter_OfBT.root.left.right = new Node(4);
+        Diameter_OfBT t1 = new Diameter_OfBT();
+        t1.root = new Node(1);
+        t1.root.left = new Node(2);
+        t1.root.right= new Node(3);
+        t1.root.left.right = new Node(4);
 
-        System.out.println("Diameter of the tree: "+Diameter(root));
+        System.out.println("Diameter of the tree: "+t1.Diameter());
         sc.close();
     }
 
-    public static int Diameter(Node root)
+    int Diameter() { return Diameter(root); }
+
+    int Diameter(Node root)
     {
         if(root ==null) return 0;
         int lh = Diameter(root.left);// Height of left sub tree
