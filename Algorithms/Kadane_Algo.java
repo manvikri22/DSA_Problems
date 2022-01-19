@@ -10,7 +10,7 @@ public class Kadane_Algo {
         for(int i=0;i<n;i++ )
         {
             arr[i] = in.nextInt();
-        }
+        }  
         System.out.println("Maximum sum of a contiguous subarray is : "+check(arr,n)) ;
         
         in.close();
