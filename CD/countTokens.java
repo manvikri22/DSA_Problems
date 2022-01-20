@@ -58,6 +58,7 @@ public class countTokens {
         {
             if(Character.isDigit(ch[i]))
             {
+                
                 nc++;
             }
         }
@@ -67,7 +68,7 @@ public class countTokens {
             {
                 if(keywords[j].equals(w))
                 {
-
+                    
                     kc++;
                 }
             }
@@ -78,7 +79,6 @@ public class countTokens {
             {
                 if(operators[j]== w)
                 {
-
                     oc++;
                 }
             }
@@ -89,7 +89,6 @@ public class countTokens {
             {
                 if(seperators[j]==w)
                 {
-
                     sc++;
                 }
             }
