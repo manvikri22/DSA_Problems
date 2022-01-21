@@ -16,17 +16,25 @@ public class JumpsGame {
     static int count(int[]arr)
     {
         int jump =0;
-        int reach =0;
-        for(int i=0;i<arr.length;i++)
+        int newjump =0;
+        int i=0;
+        int count =0;
+        
+        for(i=0;i<arr.length-1;i++)
         {
-            if(reach<i)
+            if(i+arr[i]>jump)
             {
-                return -1;
+                jump= i+arr[i];
             }
-            reach = Math.max(reach,i+arr[i]);
+            if(i==newjump)
+            {
+                count++;
+                newjump = jump;
+            }
+            if(arr[i]==0 && i==jump) return -1;
         }
-
-
-        return reach;
+        
+        return count;
     }
 }
+
