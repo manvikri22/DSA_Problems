@@ -19,8 +19,7 @@ public class FindElements {
     public static void find(int a[], int n, int k)
     {
         int x = n / k;
-        
-        
+
         HashMap<Integer, Integer> y = new HashMap<>();
       
         for (int i = 0; i < n; i++)
