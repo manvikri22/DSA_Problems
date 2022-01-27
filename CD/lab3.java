@@ -1,45 +1,51 @@
 package CD;
 import java.io.File; 
-import java.io.FileNotFoundException;  
-import java.util.Scanner;
-
-
-public class parsing {
-
+import java.io.FileNotFoundException; 
+import java.util.*;
+public class lab3 {
     static String keywords[] = { "abstract", "assert", "boolean",
-        "break", "byte", "case", "catch", "char", "class", "const",
-        "continue", "default", "do", "double", "else", "extends", "false",
-        "final", "finally", "float", "for", "goto", "if", "implements",
-        "import", "instanceof", "int", "interface", "long", "native",
-        "new", "null", "package", "private", "protected", "public",
-        "return", "short", "static", "strictfp", "super", "switch",
-        "synchronized", "this", "throw", "throws", "transient", "true",
-        "try", "void", "volatile", "while" };
+    "break", "byte", "case", "catch", "char", "class", "const",
+    "continue", "default", "do", "double", "else", "extends", "false",
+    "final", "finally", "float", "for", "goto", "if", "implements",
+    "import", "instanceof", "int", "interface", "long", "native",
+    "new", "null", "package", "private", "protected", "public",
+    "return", "short", "static", "strictfp", "super", "switch",
+    "synchronized", "this", "throw", "throws", "transient", "true",
+    "try", "void", "volatile", "while" };
 
-    static String delimiter[] = {" ","{", "}", "(",
-        ")", "[", "]", ";", ",", ".","+","-","*","/",">","<","="};
+static String delimiter[] = {" ","{", "}", "(",
+    ")", "[", "]", ";", ",", ".","+","-","*","/",">","<","="};
 
-    static String operators[] = { "+", "-", "/",
-    "*", "%", "!", "=", "^",">", "<", "&", "|", "?", "~",":"};
+static String operators[] = { "+", "-", "/",
+"*", "%", "!", "=", "^",">", "<", "&", "|", "?", "~",":"};
 
-    static char identifiers[] = {'0','1','2','3','4','5','6','7','8','9'};
-    public static void main(String[] args) {
-        
-        try {
-            File myObj = new File("C:\\Users\\Manvi Kri\\OneDrive\\Desktop\\CDAssignment1.txt");
-            Scanner in = new Scanner(myObj);
-            while (in.hasNextLine()) {
-              String data = in.nextLine();
-              parse(data);
-              
-             
-            }
-            in.close();
-          } catch (FileNotFoundException e) {
-            System.out.println("An error occurred.");
-            e.printStackTrace();
-          }
-          
+static char identifiers[] = {'0','1','2','3','4','5','6','7','8','9'};
+
+    public static void main(String[] args) throws Exception
+    {
+    try {
+        File myObj = new File("C:\\Users\\Manvi Kri\\OneDrive\\Desktop\\CDAssignment1.txt");
+        Scanner in = new Scanner(myObj);
+        System.out.println("Code without whitespaces: ");
+        while (in.hasNextLine()) {
+          String data = in.nextLine();
+          print(data);
+        }
+        System.out.println("\n");
+        Scanner sc = new Scanner(myObj);
+        while (sc.hasNextLine()) {
+            String data = sc.nextLine();
+            
+            parse(data);
+        }
+        //printcount();
+        in.close();
+        sc.close();
+      } catch (FileNotFoundException e) {
+        System.out.println("An error occurred.");
+        e.printStackTrace();
+      }
+
     }
     static void parse(String data)
     {
@@ -68,6 +74,19 @@ public class parsing {
         }
 
     }
+    public static void print(String x)
+    {
+        System.out.println();
+        char[] ch = x.toCharArray();
+        for(int i = 0; i < x.length(); i++)
+        {
+            if(!Character.isWhitespace(ch[i]))
+            {
+                System.out.print(ch[i]);
+            }
+        }
+    }
+
     static boolean iskeyword(String x)
     {
         for(int j =0;j<keywords.length;j++)
@@ -136,6 +155,6 @@ public class parsing {
             
         }
         return true;
-    }        
+    }
+
 }
-    
