@@ -19,7 +19,7 @@ public class parsing {
     static String delimiter[] = {" ","{", "}", "(",
         ")", "[", "]", ";", ",", ".","+","-","*","/",">","<","="};
 
-    static String operators[] = { "+", "-", "/",
+    static String operators[] = { "+", "-", "/","==",
     "*", "%", "!", "=", "^",">", "<", "&", "|", "?", "~",":"};
 
     static char identifiers[] = {'0','1','2','3','4','5','6','7','8','9'};
@@ -110,10 +110,9 @@ public class parsing {
         for (i = 0; i < ch.length; i++) {
             for(int j = 0; j<identifiers.length;j++)
             {
-                if(ch[i]==(identifiers[i])){
+                if(ch[i]==(identifiers[j])){
                     return true;
                 }
-
             }
             
         }
@@ -131,9 +130,7 @@ public class parsing {
                 if(ch[i]==(identifiers[i]) || isdelimiter(str)==true){
                     return false;
                 }
-
-            }
-            
+            } 
         }
         return true;
     }        
